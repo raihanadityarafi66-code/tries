@@ -1,0 +1,104 @@
+/* ══════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════ */
+:root {
+  --blue:        #1565c0;
+  --blue-mid:    #1976d2;
+  --blue-light:  #42a5f5;
+  --teal:        #00796b;
+  --teal-light:  #00897b;
+  --green-light: #e0f2f1;
+  --blue-pale:   #e3f2fd;
+  --white:       #ffffff;
+  --text-dark:   #1a1a2e;
+  --text-mid:    #37474f;
+  --text-muted:  #607d8b;
+  --radius:      18px;
+  --radius-sm:   10px;
+
+  /* sidebar — richer dark navy with blue-teal accents */
+  --sidebar-w:        248px;
+  --sidebar-bg:       #080e24;
+  --sidebar-border:   rgba(255,255,255,0.06);
+  --sidebar-text:     rgba(255,255,255,0.5);
+  --sidebar-active:   rgba(66,165,245,0.14);
+  --sidebar-hover:    rgba(255,255,255,0.055);
+  --sidebar-accent:   #42a5f5;
+  --sidebar-accent2:  #26c6da;
+}
+
+/* ══════════════════════════════════════════
+   RESET
+══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f0f4f8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   LAYOUT: sidebar + main
+══════════════════════════════════════════ */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════════ */
+.main-content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 20px 60px;
+}
+
+.page {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.18); }
+  50%      { box-shadow: 0 0 0 6px rgba(76,175,80,0.08); }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  :root { --sidebar-w: 64px; }
+
+  .main-content { padding: 24px 16px 50px; }
+}
+
+@media (max-width: 600px) {
+  :root { --sidebar-w: 248px; }
+
+  .main-content {
+    margin-left: 0;
+    padding: 70px 14px 50px;
+  }
+}
